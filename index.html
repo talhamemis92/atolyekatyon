@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atölye Katyon — El Yapımı Mum, Dekorasyon & Sabun</title>
+<meta name="description" content="Dolap, Shopier ve Gardrops mağazalarımızda. İstanbul'dan el yapımı mumlar, yüzen papatya mumlar, heykel mumlar, jel mumlar ve dekoratif ürünler. Atölye Katyon.">
+<meta property="og:title" content="Atölye Katyon — El Yapımı Mum & Dekorasyon">
+<meta property="og:image" content="img/papatya-kirmizi.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf5ee; --sand:#f0e6d8; --ink:#241a16; --muted:#7a6a60; --clay:#b5502f; --clay-d:#8f3b20; --gold:#c8a15a; --line:rgba(36,26,22,.12);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+::selection{background:var(--clay);color:#fff}
+
+/* preloader */
+#loader{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:#0b0605;overflow:hidden;transition:opacity 1.1s ease .55s,visibility 0s 1.7s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .halo{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,80,.5) 0,rgba(255,120,40,.18) 38%,transparent 70%);opacity:0;transform:scale(.2);animation:haloIn 1.6s .25s var(--ease) forwards}
+@keyframes haloIn{to{opacity:1;transform:scale(1.5)}}
+#loader .flash{position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;background:radial-gradient(circle,#fff 0,#fff3d1 25%,#ffc46b 55%,rgba(255,150,50,0) 72%);opacity:0;transform:scale(.2);pointer-events:none}
+#loader.burst .flash{animation:flash 1.35s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes flash{0%{opacity:0;transform:scale(.2)}25%{opacity:1}100%{opacity:1;transform:scale(28)}}
+.fire{position:relative;width:34px;height:84px;transform-origin:50% 100%;opacity:0;transform:scale(0);animation:ignite 1s .15s var(--ease) forwards;transition:opacity .35s,transform .6s}
+.fire i{position:absolute;inset:0;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(ellipse at 50% 80%,#fffdf0 0,#ffe48f 26%,#ffa73c 58%,#ff6418 80%,transparent 82%);filter:blur(.7px) drop-shadow(0 0 22px #ffa940) drop-shadow(0 0 70px rgba(255,130,40,.9));animation:flick .8s 1.1s infinite alternate ease-in-out}
+.fire::before{content:"";position:absolute;left:50%;bottom:3px;width:14px;height:28px;margin-left:-7px;border-radius:50%;background:radial-gradient(ellipse at 50% 70%,rgba(110,165,255,.85),rgba(70,120,255,0) 72%)}
+@keyframes ignite{0%{opacity:0;transform:scale(0)}35%{opacity:1;transform:scale(.55,.4)}70%{transform:scale(1.18,.9)}100%{opacity:1;transform:scale(1)}}
+@keyframes flick{0%{transform:scale(1,1) rotate(-2deg) skewX(-2deg)}50%{transform:scale(.93,1.08) rotate(1.5deg)}100%{transform:scale(1.06,.96) rotate(-1deg) skewX(2deg)}}
+#loader.burst .fire{transform:scale(1.5);opacity:.0;transition:opacity .5s .45s,transform .8s}
+
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,box-shadow .4s,padding .4s;padding:22px 0;color:#fff}
+header.scrolled{background:rgba(250,245,238,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0;color:var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font:italic 600 30px var(--serif);letter-spacing:.01em}
+.logo small{font:500 10px var(--sans);letter-spacing:.32em;text-transform:uppercase;display:block;margin-top:-4px;opacity:.75;font-style:normal}
+nav ul{display:flex;gap:34px;list-style:none;font-size:14px}
+nav a{position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.cart-btn{display:flex;align-items:center;gap:10px;font-size:14px;padding:10px 18px;border:1px solid currentColor;border-radius:99px;transition:.3s}
+.cart-btn:hover{background:var(--clay);border-color:var(--clay);color:#fff}
+.cart-btn span{background:var(--clay);color:#fff;border-radius:99px;min-width:20px;height:20px;display:grid;place-items:center;font-size:11px;padding:0 6px}
+.burger{display:none}.logo{white-space:nowrap}.cart-btn{white-space:nowrap}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;color:#fff;overflow:hidden;background:#1a110d}
+.hero-bg{position:absolute;inset:0;background:url(img/papatya-kirmizi.jpg) center/cover;filter:brightness(.55) saturate(1.1);transform:scale(1);animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.07) translate(-1%,.5%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,10,6,.85) 0%,rgba(20,10,6,.35) 55%,transparent),linear-gradient(0deg,rgba(20,10,6,.6),transparent 40%)}
+.hero .wrap{position:relative;z-index:2;padding:140px 0 100px}
+.eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--gold)}
+h1{font:500 clamp(48px,8vw,118px)/.96 var(--serif);margin:22px 0 26px;letter-spacing:-.01em}
+h1 em{color:#ffcf8a;font-weight:400}
+.hero p{max-width:480px;font-size:17px;color:rgba(255,255,255,.82);font-weight:300}
+.cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:99px;font-weight:500;font-size:14px;letter-spacing:.04em;transition:.4s var(--ease);position:relative;overflow:hidden}
+.btn-primary{background:var(--clay);color:#fff}
+.btn-primary:hover{background:var(--clay-d);transform:translateY(-3px);box-shadow:0 14px 34px rgba(181,80,47,.4)}
+.btn-ghost{border:1px solid rgba(255,255,255,.55);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.scroll-hint{position:absolute;bottom:34px;left:50%;z-index:3;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;gap:10px;transform:translateX(-50%)}
+.scroll-hint i{width:1px;height:46px;background:linear-gradient(#fff,transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.sparks{position:absolute;inset:0;z-index:1;pointer-events:none}
+.sparks i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:#ffc56a;box-shadow:0 0 12px 3px rgba(255,170,70,.7);opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}15%{opacity:.9}100%{opacity:0;transform:translateY(-95vh) translateX(40px)}}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--cream);overflow:hidden;padding:20px 0;white-space:nowrap}
+.marquee div{display:inline-flex;gap:56px;animation:slide 32s linear infinite;font:italic 400 26px var(--serif)}
+.marquee span::after{content:"✦";color:var(--gold);margin-left:56px;font-style:normal;font-size:16px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
+.sec-head h2{font:500 clamp(38px,5vw,68px)/1 var(--serif)}
+.sec-head h2 em{color:var(--clay)}
+.sec-head p{max-width:380px;color:var(--muted)}
+.tag{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;display:block}
+
+/* values */
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.val{background:var(--cream);padding:38px 30px;transition:background .4s}
+.val:hover{background:var(--sand)}
+.val .ic{font-size:30px;margin-bottom:18px;display:inline-block;transition:transform .5s var(--ease)}
+.val:hover .ic{transform:translateY(-6px) rotate(-8deg)}
+.val h3{font:600 24px var(--serif);margin-bottom:8px}
+.val p{font-size:14px;color:var(--muted)}
+
+/* shop */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.chip{padding:10px 22px;border:1px solid var(--line);border-radius:99px;font-size:14px;transition:.35s var(--ease)}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 28px}
+.card{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.card.in{opacity:1;transform:none}
+.card.hide{display:none}
+.pic{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--sand);cursor:pointer}
+.pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.card:hover .pic img{transform:scale(1.09)}
+.badge{position:absolute;top:14px;left:14px;background:var(--cream);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:99px;z-index:2}
+.quick{position:absolute;left:14px;right:14px;bottom:14px;display:flex;gap:10px;transform:translateY(130%);transition:transform .55s var(--ease);z-index:2}
+.card:hover .quick{transform:none}
+.quick button{flex:1;padding:13px;border-radius:12px;font-size:13px;font-weight:500;backdrop-filter:blur(10px);transition:.3s}
+.q-add{background:var(--ink);color:#fff}.q-add:hover{background:var(--clay)}
+.q-view{background:rgba(255,255,255,.9)}.q-view:hover{background:#fff}
+.meta{display:flex;justify-content:space-between;gap:12px;padding:16px 4px 0}
+.meta h3{font:600 23px/1.15 var(--serif)}
+.meta small{color:var(--muted);font-size:13px;display:block;margin-top:2px}
+.price{font:500 22px var(--serif);white-space:nowrap;color:var(--clay)}
+
+/* story */
+.story{background:var(--sand)}
+.story-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+.collage{position:relative;aspect-ratio:1/1.05}
+.collage img{position:absolute;border-radius:18px;object-fit:cover;box-shadow:0 30px 60px rgba(36,26,22,.22)}
+.collage .a{width:68%;height:72%;top:0;left:0;transition:transform .8s var(--ease)}
+.collage .b{width:52%;height:50%;right:0;top:22%;border:8px solid var(--sand);transition:transform .8s var(--ease)}
+.collage .c{width:42%;height:36%;left:12%;bottom:0;border:8px solid var(--sand);transition:transform .8s var(--ease)}
+.collage:hover .a{transform:translate(-6px,-6px) rotate(-1deg)}
+.collage:hover .b{transform:translate(8px,0) rotate(2deg)}
+.collage:hover .c{transform:translate(0,8px) rotate(-2deg)}
+.story h2{font:500 clamp(38px,4.6vw,62px)/1.02 var(--serif);margin-bottom:24px}
+.story h2 em{color:var(--clay)}
+.story p{color:var(--muted);margin-bottom:18px;max-width:520px}
+.stats{display:flex;gap:44px;margin-top:34px}
+.stats b{font:500 54px/1 var(--serif);display:block;color:var(--ink)}
+.stats span{font-size:13px;color:var(--muted)}
+
+/* gallery */
+.gal{columns:4;column-gap:16px}
+.gal figure{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;position:relative;cursor:zoom-in}
+.gal img{width:100%;transition:transform 1s var(--ease),filter .6s}
+.gal figure:hover img{transform:scale(1.07);filter:brightness(.85)}
+.gal figure::after{pointer-events:none;content:"+";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:44px;font-weight:200;opacity:0;transition:.4s}
+.gal figure:hover::after{opacity:1}
+
+/* cta band */
+.band{background:linear-gradient(120deg,#2a1a13,#4a2517);color:var(--cream);text-align:center;position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;width:520px;height:520px;left:50%;top:50%;translate:-50% -50%;background:radial-gradient(circle,rgba(255,170,70,.25),transparent 65%);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.25);opacity:.7}}
+.band .wrap{position:relative}
+.band h2{font:500 clamp(40px,6vw,84px)/1 var(--serif);margin-bottom:20px}
+.band h2 em{color:#ffcf8a}
+.band p{max-width:520px;margin:0 auto 34px;color:rgba(250,245,238,.75)}
+
+/* footer */
+footer{background:var(--ink);color:rgba(250,245,238,.7);padding:80px 0 30px}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .logo{color:var(--cream);margin-bottom:14px}
+footer h4{color:var(--cream);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+footer li{list-style:none;margin-bottom:10px;font-size:14px}
+footer a:hover{color:var(--gold)}
+.copy{display:flex;justify-content:space-between;padding-top:26px;font-size:13px;flex-wrap:wrap;gap:10px}
+
+/* stores */
+.stores{background:var(--sand)}
+.store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.store{display:flex;flex-direction:column;gap:14px;background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:38px 32px;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .4s;position:relative;overflow:hidden}
+.store::before{content:"";position:absolute;inset:auto -40% -60% auto;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(200,161,90,.28),transparent 70%);transition:transform .8s var(--ease)}
+.store:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(36,26,22,.14);border-color:var(--clay)}
+.store:hover::before{transform:scale(1.5)}
+.store .logo-b{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font:600 26px var(--serif);color:#fff;background:var(--clay)}
+.store.dolap .logo-b{background:#e4572e}.store.shopier .logo-b{background:#1f6f5c}.store.gardrops .logo-b{background:#3a3a8f}
+.store h3{font:600 32px var(--serif)}
+.store p{color:var(--muted);font-size:15px;flex:1}
+.store span.go{font-size:14px;font-weight:500;color:var(--clay);display:inline-flex;gap:8px;transition:gap .4s var(--ease)}
+.store:hover span.go{gap:16px}
+.stores-mini{display:grid;gap:10px}
+.stores-mini .btn{justify-content:center;background:var(--ink);color:#fff}
+.stores-mini .btn:hover{background:var(--clay);transform:translateY(-2px)}
+@media(max-width:980px){.store-grid{grid-template-columns:1fr}}
+/* cart drawer (unused) */
+.veil{position:fixed;inset:0;background:rgba(20,10,6,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.4s;z-index:90}
+.veil.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--cream);z-index:100;transform:translateX(105%);transition:transform .6s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.d-head{display:flex;justify-content:space-between;align-items:center;padding:26px 28px;border-bottom:1px solid var(--line)}
+.d-head h3{font:600 28px var(--serif)}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);font-size:18px;transition:.3s}
+.x:hover{background:var(--ink);color:#fff;transform:rotate(90deg)}
+.d-body{flex:1;overflow:auto;padding:12px 28px}
+.empty{text-align:center;color:var(--muted);margin-top:90px}
+.empty big{font-size:48px;display:block;margin-bottom:10px}
+.line{display:grid;grid-template-columns:76px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:center;animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateX(30px)}}
+.line img{width:76px;height:76px;object-fit:cover;border-radius:12px}
+.line h4{font:600 19px var(--serif)}
+.qty{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:14px}
+.qty button{width:26px;height:26px;border:1px solid var(--line);border-radius:50%;line-height:1}
+.qty button:hover{background:var(--ink);color:#fff}
+.rm{font-size:12px;color:var(--muted);text-decoration:underline}
+.d-foot{padding:24px 28px;border-top:1px solid var(--line);background:var(--sand)}
+.total{display:flex;justify-content:space-between;font:600 26px var(--serif);margin-bottom:6px}
+.d-foot small{display:block;color:var(--muted);margin-bottom:16px;font-size:12px}
+.d-foot .btn{width:100%;justify-content:center}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.4s}
+.modal.on{opacity:1;pointer-events:auto}
+.m-box{background:var(--cream);border-radius:22px;max-width:960px;width:100%;display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden;transform:translateY(40px) scale(.97);transition:transform .6s var(--ease);max-height:92vh;position:relative}
+.modal.on .m-box{transform:none}
+.m-box>img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.m-info{padding:46px 42px;display:flex;flex-direction:column;justify-content:center;overflow:auto}
+.m-info h3{font:500 44px/1 var(--serif);margin:10px 0 14px}
+.m-info p{color:var(--muted);margin-bottom:22px}
+.m-info ul{list-style:none;margin-bottom:26px;font-size:14px}
+.m-info li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.m-info li span{color:var(--muted)}
+.m-box .x{position:absolute;top:14px;right:14px;background:var(--cream);z-index:2}
+.lightbox{position:fixed;inset:0;background:rgba(15,8,5,.94);z-index:120;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.4s;cursor:zoom-out;padding:30px}
+.lightbox.on{opacity:1;pointer-events:auto}
+.lightbox img{max-height:90vh;border-radius:12px;transform:scale(.94);transition:transform .6s var(--ease)}
+.lightbox.on img{transform:none}
+.toast{position:fixed;bottom:28px;left:50%;translate:-50% 140px;background:var(--ink);color:#fff;padding:14px 26px;border-radius:99px;z-index:130;font-size:14px;transition:translate .6s var(--ease)}
+.toast.on{translate:-50% 0}
+
+/* düşen yıldızlar */
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:40;pointer-events:none;opacity:0;transition:opacity .6s}
+/* reveal */
+.rv{opacity:0;transform:translateY(46px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+@media(max-width:980px){
+  .values{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr 1fr}.story-grid{grid-template-columns:1fr;gap:50px}.gal{columns:3}.f-grid{grid-template-columns:1fr 1fr}
+  nav{position:fixed;inset:0 0 0 auto;width:min(320px,80%);background:var(--cream);color:var(--ink);padding:100px 34px;transform:translateX(105%);transition:transform .6s var(--ease);z-index:60}
+  nav.on{transform:none}nav ul{flex-direction:column;font:500 30px var(--serif);gap:22px}
+  .burger{display:block;width:40px;height:40px;position:relative;z-index:70}
+  .burger i{position:absolute;left:8px;right:8px;height:2px;background:currentColor;transition:.4s}
+  .burger i:nth-child(1){top:14px}.burger i:nth-child(2){top:25px}
+  .burger.on{color:var(--ink)}.burger.on i:nth-child(1){top:20px;rotate:45deg}.burger.on i:nth-child(2){top:20px;rotate:-45deg}
+}
+@media(max-width:640px){
+  section{padding:80px 0}.grid{grid-template-columns:1fr;gap:34px}.values{grid-template-columns:1fr}.gal{columns:2}
+  .m-box{grid-template-columns:1fr;overflow:auto}.m-box>img{min-height:240px;max-height:300px}.m-info{padding:28px}.m-info h3{font-size:36px}
+  .stats{gap:26px}.stats b{font-size:42px}.cart-btn{padding:8px 14px;font-size:13px}.logo{font-size:24px}.logo small{letter-spacing:.2em;font-size:9px}.quick{transform:none}.f-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true"><div class="halo"></div><div class="fire"><i></i></div><div class="flash"></div></div>
+
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="logo">Atölye Katyon<small>El yapımı · İstanbul</small></a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#urunler">Koleksiyon</a></li>
+        <li><a href="#magazalar">Mağazalarımız</a></li>
+        <li><a href="#hikaye">Hikâyemiz</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <a class="cart-btn" href="#magazalar">Mağazalarımız ↗</a>
+      <button class="burger" id="burger" aria-label="Menü"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="sparks" id="sparks"></div>
+  <div class="wrap">
+    <span class="eyebrow">Burada her şey pozitif</span>
+    <h1>Işığı <em>elle</em><br>şekillendiriyoruz.</h1>
+    <p>Yüzen papatya mumlardan heykel mumlara, jel mumlardan beton tealight'lara… Her parça İstanbul'daki atölyemizde tek tek, sevgiyle üretilir.</p>
+    <div class="cta">
+      <a href="#magazalar" class="btn btn-primary">Mağazalarımıza göz at →</a>
+      <a href="#urunler" class="btn btn-ghost">Koleksiyonu keşfet</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Kaydır<i></i></div>
+</section>
+
+<div class="marquee"><div id="mq"></div></div>
+
+<section style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="values">
+      <div class="val rv"><span class="ic">🕯️</span><h3>El yapımı</h3><p>Seri üretim yok. Her mum atölyemizde tek tek dökülür.</p></div>
+      <div class="val rv d1"><span class="ic">🌿</span><h3>Özenli içerik</h3><p>Dengeli kokular, temiz yanış ve dikkatle seçilmiş malzemeler.</p></div>
+      <div class="val rv d2"><span class="ic">🎁</span><h3>Hediyeye hazır</h3><p>Özel günler için şık paketleme ve kişiye özel seçenekler.</p></div>
+      <div class="val rv d3"><span class="ic">🛍️</span><h3>Güvenli alışveriş</h3><p>Ürünlerimizi Dolap, Shopier ve Gardrops mağazalarımızdan satın alabilirsiniz.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="urunler">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="tag">Koleksiyon</span><h2>Atölyeden <em>seçmeler</em></h2></div>
+      <p class="rv d1">Kategoriye göre göz atın, ürüne tıklayıp detayları görün; satın almak için mağazalarımıza geçin.</p>
+    </div>
+    <div class="filters rv" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="story" id="hikaye">
+  <div class="wrap story-grid">
+    <div class="collage rv">
+      <img class="a" src="img/gul-kavanoz.jpg" alt="Gül tomurcuklu kavanoz mum" loading="lazy">
+      <img class="b" src="img/papatya-beyaz.jpg" alt="Yüzen papatya mumlar" loading="lazy">
+      <img class="c" src="img/kedi-tealight.jpg" alt="Kedi tealight mumluk" loading="lazy">
+    </div>
+    <div>
+      <span class="tag rv">Hikâyemiz</span>
+      <h2 class="rv d1">Küçük bir atölye,<br><em>büyük</em> bir sıcaklık.</h2>
+      <p class="rv d2">Atölye Katyon; mum, dekorasyon ve sabun üretimini aynı çatı altında toplayan, İstanbul merkezli bir el yapımı markadır. Evinize küçük bir dokunuş, büyük bir enerji katmak için tasarlıyoruz.</p>
+      <p class="rv d2">Her sezon yeni formlar, renkler ve kokularla koleksiyonumuzu büyütüyoruz. Sevdiklerinize hediye edebileceğiniz, evinizde gurur duyacağınız parçalar.</p>
+      <div class="stats rv d3">
+        <div><b data-n="91">0</b><span>paylaşım</span></div>
+        <div><b data-n="850" data-plus="1">0</b><span>takipçi</span></div>
+        <div><b data-n="3">0</b><span>ana kategori</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="tag">Galeri</span><h2>Işıkla <em>dolu</em> anlar</h2></div>
+      <a class="btn btn-primary rv d1" href="https://www.instagram.com/atolyekatyon/" target="_blank" rel="noopener">Instagram'da takip et ↗</a>
+    </div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section id="magazalar" class="stores">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="tag">Satın al</span><h2>Mağazalarımız</h2></div>
+      <p class="rv d1">Bu site bir vitrin. Ürünlerimizi aşağıdaki platformlardan güvenle satın alabilirsiniz.</p>
+    </div>
+    <div class="store-grid" id="storeGrid"></div>
+  </div>
+</section>
+
+<section class="band" id="iletisim">
+  <div class="wrap">
+    <span class="tag rv" style="color:var(--gold)">Özel tasarım & sorular</span>
+    <h2 class="rv d1">Aklınızdaki mumu <em>birlikte</em> yapalım.</h2>
+    <p class="rv d2">Düğün, doğum günü, kurumsal hediye ya da sadece kendiniz için… Özel renk, koku ve form talepleriniz için Instagram'dan bize yazın.</p>
+    <a class="btn btn-primary rv d3" href="https://www.instagram.com/atolyekatyon/" target="_blank" rel="noopener">Instagram'dan mesaj gönder ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><div class="logo">Atölye Katyon</div><p style="max-width:320px;font-size:14px">El yapımı mum, dekorasyon ve sabun. İstanbul, Türkiye.</p></div>
+      <div><h4>Keşfet</h4><ul><li><a href="#urunler">Ürünler</a></li><li><a href="#hikaye">Hikâyemiz</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#magazalar">Mağazalarımız</a></li></ul></div>
+      <div><h4>Mağazalar</h4><ul><li><a href="https://link.dolap.com/c4i49" target="_blank" rel="noopener">Dolap</a></li><li><a href="https://www.shopier.com/AtolyeKatyon" target="_blank" rel="noopener">Shopier Dükkan</a></li><li><a href="https://www.gardrops.com/atolyekatyon" target="_blank" rel="noopener">Gardrops</a></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a href="https://www.instagram.com/atolyekatyon/" target="_blank" rel="noopener">@atolyekatyon</a></li><li><a href="https://www.atolyekatyon.com.tr">atolyekatyon.com.tr</a></li></ul></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> Atölye Katyon. Tüm hakları saklıdır.</span><span>Sevgiyle, elle üretildi.</span></div>
+  </div>
+</footer>
+
+<div class="veil" id="veil"></div>
+
+<div class="modal" id="modal"><div class="m-box" id="mbox"></div></div>
+<div class="lightbox" id="lb"><img alt=""></div>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ====== ÜRÜNLER — fiyat ve açıklamaları buradan düzenleyin ====== */
+const STORES=[
+ {k:"dolap",name:"Dolap",desc:"Ürünlerimizi Dolap mağazamızda bulabilirsiniz.",url:"https://link.dolap.com/c4i49"},
+ {k:"shopier",name:"Shopier Dükkan",desc:"Shopier dükkanımızdan güvenle sipariş verin.",url:"https://www.shopier.com/AtolyeKatyon"},
+ {k:"gardrops",name:"Gardrops",desc:"Gardrops sayfamızda da yer alıyoruz.",url:"https://www.gardrops.com/atolyekatyon"}
+];
+const PRODUCTS = [
+ {id:1,name:"Yüzen Papatya Mum — Krem",cat:"Yüzen Mumlar",price:180,img:"papatya-beyaz",badge:"Yeni",desc:"Suyun üzerinde süzülen, papatya formlu yüzen mum seti. Masa ve sofra dekorunda büyüleyici bir ışık oyunu.",spec:[["Set","12 adet"],["Renk","Krem"],["Kullanım","Şeffaf kasede suyla"]]},
+ {id:2,name:"Kalpli Mum",cat:"Kavanoz & Jel",img:"kalpli-mum",badge:"Hediyelik",shop:"https://www.shopier.com/AtolyeKatyon/44269065",desc:"Kalp formlu mika ambalajda, kurutulmuş gül tomurcuklarıyla süslü kırmızı mum. Sevdiklerinize hediye etmek için birebir.",spec:[["Form","Kalp"],["Süsleme","Gül tomurcuğu"],["Ambalaj","Mika"]]},
+ {id:3,name:"Kavanoz Mum",cat:"Kavanoz & Jel",img:"ahududu-kavanoz",badge:"Çok sevilen",shop:"https://www.shopier.com/AtolyeKatyon/44024595",desc:"330 cc cam kavanozda, ahududu formlu mumlarla hazırlanan el yapımı kokulu mum. Puantiyeli kapağı ve ip detayıyla çok şık.",spec:[["Boyut","330 cc cam kavanoz"],["Koku","Vanilya, kahve, çilek, lavanta, çikolata, dut, tarçın"],["Paket","İp detaylı"]]},
+ {id:4,name:"Sevgili Heykel Mum",cat:"Heykel Mumlar",price:240,img:"sevgili-heykel",badge:"Hediyelik",desc:"Birbirine sarılan iki figür. Sevgililer Günü, yıldönümü ve evlilik hediyesi için ideal.",spec:[["Renk","Krem"],["Form","Heykel"],["Hediye paketi","Mevcut"]]},
+ {id:5,name:"Halloween Figür Mum Seti",cat:"Heykel Mumlar",price:420,img:"halloween-cift",badge:"Sezonluk",desc:"Siyah, mor ve turuncu figür mumlarla cadılar bayramı sofraları için özel seri.",spec:[["Set","3 adet"],["Renkler","Siyah, mor, turuncu"],["Form","Heykel"]]},
+ {id:6,name:"Bubble & Deniz Kabuğu Set",cat:"Heykel Mumlar",price:320,img:"bubble-heykel-set",desc:"Bubble küp, deniz kabuğu ve figür mumdan oluşan modern dekor üçlüsü.",spec:[["Set","3 form"],["Renk","Krem"],["Stil","Modern / minimal"]]},
+ {id:7,name:"Burgu Mum — Bordo Varaklı",cat:"Uzun Mumlar",price:260,img:"burgu-bordo-varak",badge:"Premium",desc:"Altın varak detaylı, bordo burgu mum üçlüsü. Şık sofralar için.",spec:[["Set","3 adet"],["Renk","Bordo + altın varak"],["Form","Burgu"]]},
+ {id:8,name:"Burgu Mum — Üçlü Set",cat:"Uzun Mumlar",price:210,img:"burgu-uclu-set",desc:"Krem ve bej tonlarında burgu mumlar, şeffaf pakette hediyeye hazır.",spec:[["Set","3 adet"],["Renk","Krem & bej"],["Paket","Şeffaf, kurdelalı"]]},
+ {id:9,name:"Klasik Şamdan Mum",cat:"Uzun Mumlar",price:150,img:"klasik-samdan",desc:"Bordo klasik şamdan mumları; zamansız, nostaljik bir atmosfer.",spec:[["Set","2 adet"],["Renk","Bordo"],["Form","Şamdan mumu"]]},
+ {id:10,name:"Gül Tomurcuklu Kavanoz Mum",cat:"Kavanoz & Jel",price:290,img:"gul-kavanoz",badge:"Hediyelik",desc:"Kurutulmuş gül tomurcuklarıyla süslü, altın kapaklı kavanoz mum.",spec:[["Boyut","Orta kavanoz"],["Süsleme","Gül tomurcuğu"],["Yanış","Uzun süreli"]]},
+ {id:11,name:"Kokulu Kavanoz Mum",cat:"Kavanoz & Jel",price:260,img:"kokulu-kavanoz",desc:"El yapımı kokulu kavanoz mum; puantiyeli kapak ve ip detayıyla.",spec:[["Boyut","Kavanoz"],["Koku","Seçmeli"],["Paket","Etiketli"]]},
+ {id:12,name:"Flamingo Jel Mum",cat:"Kavanoz & Jel",price:310,img:"jel-flamingo",badge:"Yeni",desc:"Şeffaf jel içinde cam flamingo figürü. Işıltılı, eğlenceli ve çok fotoğrafik.",spec:[["Form","Cam kupa"],["Detay","Cam flamingo"],["Tür","Jel mum"]]},
+ {id:13,name:"Kedi Tealight Mumluk",cat:"Dekoratif",price:140,img:"kedi-tealight",desc:"Beton kedi figürlü tealight mumluk; gözlerinde ışık yanar.",spec:[["Malzeme","Beton"],["Kullanım","Tealight"],["Stil","Sevimli"]]},
+ {id:14,name:"Beton Tepsi & Mumluk Set",cat:"Dekoratif",price:340,img:"beton-tepsi-set",desc:"Oval beton tepsi ve mumluk seti, sehpa ve kahve köşeleri için.",spec:[["Set","Tepsi + mumluk"],["Malzeme","Beton"],["Stil","Minimal"]]},
+ {id:15,name:"Papatya Sabun Seti",cat:"Sabun",price:130,img:"papatya-sabun",desc:"Renkli papatya formlu el yapımı dekoratif sabunlar.",spec:[["Set","Çoklu"],["Form","Papatya"],["Tür","El yapımı sabun"]]},
+ {id:100,name:"Deniz Temalı Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_82ff86d2ae0c2a355ba49bbcac9308c4.jpg",badge:"Yeni",shop:"https://www.shopier.com/AtolyeKatyon/45052753",desc:"Deniz temalı el yapımı kavanoz mum. Beyaz ve mavi renk seçenekleriyle.",spec:[["Tema", "Deniz"], ["Renk", "Beyaz / Mavi"]]},
+ {id:101,name:"Üçlü Burgu Mum",cat:"Uzun Mumlar",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_2f1aeac0f642c55b6024a002a74156d8.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44292210",desc:"3 adetlik burgu mum seti. Her mum yaklaşık 20 cm boyunda; sofralara zarif bir dokunuş.",spec:[["Set", "3 adet"], ["Boy", "20 cm"], ["Form", "Burgu"]]},
+ {id:102,name:"Cam Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_4cfa9c28b575c90ab3e764765b564ad0.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44292153",desc:"330 cc cam kavanozda el yapımı mum.",spec:[["Boyut", "330 cc cam kavanoz"]]},
+ {id:103,name:"İkili Burgu Mum",cat:"Uzun Mumlar",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_565d75c6d6227018b9a1f000be2ef12d.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44269008",desc:"2 adetlik burgu mum seti; hediye ve dekor için ideal.",spec:[["Set", "2 adet"], ["Form", "Burgu"]]},
+ {id:104,name:"İkili Şamdan Mum",cat:"Uzun Mumlar",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_e9619562aa8e028fab4722a2c66c2f67.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44024663",desc:"Şamdanlarda kullanılan klasik uzun mum çifti.",spec:[["Set", "2 adet"], ["Form", "Şamdan mumu"]]},
+ {id:105,name:"Kokulu Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_3b015cbcd61162e5e08d408d341789ad.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44024571",desc:"330 cc kavanozda el yapımı kokulu mum.",spec:[["Boyut", "330 cc kavanoz"], ["Koku", "Vanilya, kahve, çilek, lavanta, çikolata, tarçın"]]},
+ {id:106,name:"Kırmızı Meyve Kokulu Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_1c4497d9eb0883b62d4678d1ba22bc10.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44024367",desc:"330 cc cam kavanozda, kırmızı meyve kokulu mum.",spec:[["Boyut", "330 cc cam kavanoz"], ["Koku", "Kırmızı meyve"]]},
+ {id:107,name:"Şamdan Mum Çifti",cat:"Uzun Mumlar",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_28a3f97d9494cd59e50effb70f1ead95.jpg",shop:"https://www.shopier.com/AtolyeKatyon/44024217",desc:"Zamansız bir görünüm için ikili şamdan mum.",spec:[["Set", "2 adet"], ["Form", "Şamdan mumu"]]},
+ {id:108,name:"Cam Kavanoz Mum — Klasik",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_9adcd6f091aa7508f5e10ee59cea0a39.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43972956",desc:"330 cc cam kavanozda el yapımı mum.",spec:[["Boyut", "330 cc cam kavanoz"]]},
+ {id:109,name:"Dev Mum",cat:"Dekoratif",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_3d4daafa9a5df6dd6aaecf188e70ce29.jpg",badge:"Dev boy",shop:"https://www.shopier.com/AtolyeKatyon/43972861",desc:"400 ml'lik dev mum; uzun süre yanar, dekoratif bir parça olarak da çok iyi durur.",spec:[["Hacim", "400 ml"], ["Boyut", "Dev"]]},
+ {id:110,name:"Şekerlikte Mum",cat:"Dekoratif",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_72ccf178c6b5fe61ccf58a5f29215d34.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43972798",desc:"Şekerlik içinde sunulan, hediyelik el yapımı mum.",spec:[["Kap", "Şekerlik"], ["Kullanım", "Dekor / hediye"]]},
+ {id:111,name:"Kapaklı Beton Kavanozda Mum",cat:"Dekoratif",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_b57a7ba5c43f7fbec58a9d46f2873bb7.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43972776",desc:"Kapaklı beton kavanozda mum. Turuncu, kahverengi, siyah, beyaz, yeşil ve mavi renk seçenekleri var.",spec:[["Malzeme", "Beton"], ["Renkler", "6 seçenek"], ["Kapak", "Var"]]},
+ {id:112,name:"Cam Bardakta Mum",cat:"Dekoratif",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_44c6dcb2ceafb1869397e710156652cf.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43972730",desc:"Şık cam bardak içinde el yapımı mum.",spec:[["Kap", "Cam bardak"]]},
+ {id:113,name:"Balkabaklı Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_e846b2804e7949380733e58e4a54cb5e.jpg",badge:"Sezonluk",shop:"https://www.shopier.com/AtolyeKatyon/43783580",desc:"Balkabağı temalı, sonbahara özel 330 cc kavanoz mum.",spec:[["Boyut", "330 cc"], ["Tema", "Balkabağı"]]},
+ {id:114,name:"Kahveli Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_40b20730eb7c711933737933c8658e01.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43783570",desc:"Kahve çekirdekli 330 cc kavanoz mum.",spec:[["Boyut", "330 cc"], ["Tema", "Kahve"]]},
+ {id:115,name:"Deniz Kabuklu Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_57725285aa54b56759f7e600fde094ec.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43783554",desc:"Deniz kabuğu detaylı 330 cc kavanoz mum.",spec:[["Boyut", "330 cc"], ["Tema", "Deniz kabuğu"]]},
+ {id:116,name:"Güllü Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_94442c8dcedddb22b4d91fe9bfe40c58.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43783533",desc:"Gül detaylı 330 cc cam kavanoz mum.",spec:[["Boyut", "330 cc cam kavanoz"], ["Süsleme", "Gül"]]},
+ {id:117,name:"Doğal Taşlı Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_a09be8b50bb965b473d705f659fbabfe.jpg",badge:"Premium",shop:"https://www.shopier.com/AtolyeKatyon/43783526",desc:"Karışık doğal taşlarla süslenmiş 330 cc cam kavanoz mum.",spec:[["Boyut", "330 cc cam kavanoz"], ["Süsleme", "Karışık doğal taş"]]},
+ {id:118,name:"Balkabağı Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_81006106669ddc24c2970798d4b540d1.jpg",badge:"Sezonluk",shop:"https://www.shopier.com/AtolyeKatyon/43738163",desc:"330 cc cam kavanozda balkabağı temalı mum.",spec:[["Boyut", "330 cc cam kavanoz"], ["Tema", "Balkabağı"]]},
+ {id:119,name:"Sevgililer Günü Seti",cat:"Dekoratif",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_2580d1e4ad386553d7878350a2bd92c5.jpg",badge:"Hediyelik",shop:"https://www.shopier.com/AtolyeKatyon/43738139",desc:"Soya wax'tan hazırlanan kalp formlu mumlardan oluşan Sevgililer Günü hediye seti.",spec:[["Malzeme", "Soya wax"], ["Form", "Kalp"]]},
+ {id:120,name:"Lavantalı Cam Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_cbb84415fe862ee6f5febe1410fff9f0.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43738106",desc:"Soya wax'tan, lavanta kokulu cam kavanoz mum.",spec:[["Malzeme", "Soya wax"], ["Koku", "Lavanta"]]},
+ {id:121,name:"330 cc Cam Kavanoz Mum",cat:"Kavanoz & Jel",img:"https://cdn.shopier.app/pictures_large/AtolyeKatyon_5f015ae639e32f1a016539d23a5dc1f0.jpg",shop:"https://www.shopier.com/AtolyeKatyon/43632002",desc:"330 cc cam kavanozda el yapımı mum.",spec:[["Boyut", "330 cc cam kavanoz"]]}
+];
+const GALLERY=["papatya-kirmizi","gul-kavanoz","halloween-cift","kedi-tealight","burgu-bordo-varak","jel-flamingo","sevgili-heykel","papatya-turuncu","bubble-heykel-set","klasik-samdan","beton-tepsi-set","burgu-uclu-set"];
+
+const IMG=p=>p.img.startsWith("http")?p.img:`img/${p.img}.jpg`;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const money=n=>"₺"+n.toLocaleString("tr-TR");
+
+/* preloader: alev yanar, 2 sn sonra ışık patlar, site açılır */
+(function(){const t0=performance.now();let loaded=document.readyState==="complete",fired=false;
+ addEventListener("load",()=>{loaded=true});
+ function go(){if(fired)return;fired=true;const L=$("#loader");L.classList.add("burst");setTimeout(()=>L.classList.add("done"),850);setTimeout(()=>L.remove(),3000)}
+ (function wait(){if(performance.now()-t0>=2000&&(loaded||performance.now()-t0>4500))go();else setTimeout(wait,60)})();
+})();
+
+/* header / parallax */
+const hd=$("#hd"),bg=$("#heroBg");
+addEventListener("scroll",()=>{hd.classList.toggle("scrolled",scrollY>60);if(scrollY<innerHeight)bg.style.translate=`0 ${scrollY*.25}px`},{passive:true});
+$("#burger").onclick=e=>{e.currentTarget.classList.toggle("on");$("#nav").classList.toggle("on")};
+$$("#nav a").forEach(a=>a.onclick=()=>{$("#burger").classList.remove("on");$("#nav").classList.remove("on")});
+
+/* sparks */
+$("#sparks").innerHTML=Array.from({length:22},()=>`<i style="left:${Math.random()*100}%;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*8}s;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px"></i>`).join("");
+
+/* marquee */
+const words=["El Yapımı Mumlar","Yüzen Papatya","Heykel Mumlar","Jel Mumlar","Beton Dekor","Doğal Sabunlar","Hediyelik Setler"];
+$("#mq").innerHTML=[...words,...words].map(w=>`<span>${w}</span>`).join("");
+
+/* shop */
+const cats=["Tümü",...new Set(PRODUCTS.map(p=>p.cat))];
+let active="Tümü";
+$("#filters").innerHTML=cats.map(c=>`<button class="chip ${c==="Tümü"?"on":""}" data-c="${c}">${c}</button>`).join("");
+$("#grid").innerHTML=PRODUCTS.map(p=>`
+<article class="card" data-cat="${p.cat}">
+  <div class="pic" data-view="${p.id}">
+    ${p.badge?`<span class="badge">${p.badge}</span>`:""}
+    <img src="${IMG(p)}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.card').remove()">
+    <div class="quick"><button class="q-view" data-view="${p.id}">Hızlı bak</button><button class="q-add" data-view="${p.id}">Mağazada bul</button></div>
+  </div>
+  <div class="meta"><div><h3>${p.name}</h3><small>${p.cat}</small></div><div class="price" style="font-size:20px">↗</div></div>
+</article>`).join("");
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+function observe(){$$(".rv:not(.in),.card:not(.in):not(.hide)").forEach((el,i)=>{el.style.transitionDelay=el.classList.contains("card")?(i%3)*90+"ms":"";io.observe(el)})}
+observe();
+$("#filters").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;active=b.dataset.c;$$(".chip").forEach(c=>c.classList.toggle("on",c===b));
+  $$(".card").forEach(c=>{const show=active==="Tümü"||c.dataset.cat===active;c.classList.toggle("hide",!show);c.classList.remove("in");});
+  requestAnimationFrame(()=>requestAnimationFrame(observe))};
+$("#grid").onclick=e=>{
+  const v=e.target.closest("[data-view]");if(v)openModal(+v.dataset.view)};
+
+/* stores */
+$("#storeGrid").innerHTML=STORES.map((t,i)=>`<a class="store ${t.k} rv d${i}" href="${t.url}" target="_blank" rel="noopener"><div class="logo-b">${t.name[0]}</div><h3>${t.name}</h3><p>${t.desc}</p><span class="go">Mağazaya git <i style="font-style:normal">→</i></span></a>`).join("");
+observe();
+/* gallery */
+$("#gal").innerHTML=GALLERY.map((g,i)=>`<figure class="rv" style="transition-delay:${(i%4)*80}ms"><img src="img/${g}.jpg" alt="Atölye Katyon" loading="lazy"></figure>`).join("");
+observe();
+$("#gal").onclick=e=>{const f=e.target.closest("figure");if(!f)return;const im=f.querySelector("img");$("#lb img").src=im.src;$("#lb").classList.add("on")};
+$("#lb").onclick=()=>$("#lb").classList.remove("on");
+
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n,t0=performance.now();
+  (function f(t){const p=Math.min((t-t0)/1600,1),v=Math.round(n*(1-Math.pow(1-p,3)));el.textContent=v+(p===1&&el.dataset.plus?"+":"");if(p<1)requestAnimationFrame(f)})(t0);co.unobserve(el)}),{threshold:.6});
+$$("[data-n]").forEach(el=>co.observe(el));
+
+/* modal */
+function openModal(id){const p=PRODUCTS.find(x=>x.id===id);
+  $("#mbox").innerHTML=`<button class="x" id="mx" aria-label="Kapat">✕</button><img src="${IMG(p)}" alt="${p.name}" referrerpolicy="no-referrer">
+  <div class="m-info"><span class="tag" style="margin:0">${p.cat}</span><h3>${p.name}</h3><p>${p.desc}</p>
+  <ul>${p.spec.map(s=>`<li><span>${s[0]}</span><b style="font-weight:500">${s[1]}</b></li>`).join("")}</ul>
+  <small style="color:var(--muted);margin-bottom:10px">Satın almak için mağazamızı seçin:</small><div class="stores-mini">${STORES.map(t=>`<a class="btn ${t.k}" href="${t.k==="shopier"&&p.shop?p.shop:t.url}" target="_blank" rel="noopener">${t.name} ↗</a>`).join("")}</div></div>`;
+  $("#modal").classList.add("on");$("#veil").classList.add("on");
+  $("#mx").onclick=closeAll}
+$("#modal").onclick=e=>{if(e.target.id==="modal")closeAll()};
+
+function closeAll(){$("#modal").classList.remove("on");$("#veil").classList.remove("on")}
+$("#veil").onclick=closeAll;
+addEventListener("keydown",e=>{if(e.key==="Escape"){closeAll();$("#lb").classList.remove("on")}});
+$("#yr").textContent=new Date().getFullYear();
+
+/* düşen yıldızlar: ilk banner bitince yavaşça belirir */
+(function(){
+ const cv=$("#stars"),cx=cv.getContext("2d");if(!cv||matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+ let W,H,dpr=Math.min(devicePixelRatio||1,2),stars=[],lastY=scrollY,boost=0,vis=0;
+ const COLORS=["184,134,46","201,148,52","214,168,80","181,80,47"];
+ function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}
+ function mk(top){const big=Math.random()<.28;return{x:Math.random()*W,y:top?-20:Math.random()*H,r:big?5+Math.random()*3.5:1.8+Math.random()*1.6,big,v:.22+Math.random()*.5,sw:Math.random()*6.28,sa:.15+Math.random()*.4,tw:Math.random()*6.28,c:COLORS[Math.random()*COLORS.length|0],rot:Math.random()*6.28}}
+ function init(){size();const n=W<640?22:42;stars=Array.from({length:n},()=>mk(false))}
+ function star(x,y,r,rot){cx.beginPath();for(let i=0;i<8;i++){const a=rot+i*Math.PI/4,rr=i%2?r*.28:r;cx.lineTo(x+Math.cos(a)*rr,y+Math.sin(a)*rr)}cx.closePath();cx.fill()}
+ function frame(t){
+  const hero=innerHeight,target=Math.min(1,Math.max(0,(scrollY-hero*.55)/(hero*.35)));
+  vis+=(target-vis)*.06;cv.style.opacity=vis.toFixed(3);
+  const dy=scrollY-lastY;lastY=scrollY;boost=boost*.92+Math.min(Math.abs(dy),60)*.05;
+  if(vis>.01){cx.clearRect(0,0,W,H);
+   for(const s of stars){
+    s.y+=s.v+boost*(.4+s.r*.12);s.sw+=.012;s.tw+=.03;s.rot+=.004;
+    const x=s.x+Math.sin(s.sw)*s.sa*30;
+    if(s.y>H+20){Object.assign(s,mk(true))}
+    const a=(.62+.3*Math.sin(s.tw))*(s.big?1:.85);
+    cx.fillStyle=`rgba(${s.c},${a})`;cx.shadowColor=`rgba(${s.c},.7)`;cx.shadowBlur=s.big?8:4;
+    s.big?star(x,s.y,s.r,s.rot):(cx.beginPath(),cx.arc(x,s.y,s.r,0,6.283),cx.fill());
+   }}
+  requestAnimationFrame(frame)}
+ addEventListener("resize",init);document.addEventListener("visibilitychange",()=>{lastY=scrollY});
+ init();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
